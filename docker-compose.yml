@@ -4,11 +4,6 @@ services:
   vulnerable-web-app:
     build: .
     ports:
-      - "6000:8080"
-
-  secure_web_app:
-    build: .
-    ports: 
       - "7000:8080"
 
   waf:
@@ -16,4 +11,4 @@ services:
     ports:
       - "8081:8080"
     depends_on:
-      - secure_web_app
+      - vulnerable-web-app
