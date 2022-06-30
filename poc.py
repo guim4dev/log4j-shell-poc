@@ -108,7 +108,9 @@ def main() -> None:
     init(autoreset=True)
     print(Fore.BLUE + """
 [!] CVE: CVE-2021-44228
-[!] Github repo: https://github.com/kozmer/log4j-shell-poc
+[!] Original Github repo: https://github.com/kozmer/log4j-shell-poc
+[!] WAF base Github repo: https://github.com/theonemule/docker-waf
+[!] Remastered Github repo: https://github.com/guim4dev/log4j-shell-poc
 """)
 
     parser = argparse.ArgumentParser(description='log4shell PoC')
