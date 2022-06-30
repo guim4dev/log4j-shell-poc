@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  vulnerable-web-app:
+    build: .
+    ports:
+      - "6969:8080"
+
+  secure_web_app:
+    hostname: secure_web_app
+    build: .
+    networks:
+      - secure
+
+  waf:
+    build: waf
+    ports:
+      - "8081:80"
+    depends_on:
+      - secure_web_app
+    networks:
+      - secure
+
+networks:
+  secure:
+    name: secure
+    external: true
+

