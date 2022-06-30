@@ -4,25 +4,16 @@ services:
   vulnerable-web-app:
     build: .
     ports:
-      - "6969:8080"
+      - "6000:8080"
 
   secure_web_app:
-    hostname: secure_web_app
     build: .
-    networks:
-      - secure
+    ports: 
+      - "7000:8080"
 
   waf:
     build: waf
     ports:
-      - "8081:80"
+      - "8081:8080"
     depends_on:
       - secure_web_app
-    networks:
-      - secure
-
-networks:
-  secure:
-    name: secure
-    external: true
-
